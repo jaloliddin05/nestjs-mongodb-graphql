@@ -1,0 +1,30 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Country {
+  name: String!
+  area: String!
+}
+
+type Query {
+  findAllCountry: [Country!]!
+  findOneCountry(id: String!): Country!
+}
+
+type Mutation {
+  createCountry(CreateCountryInput: CreateCountryInput!): Country!
+  updateCountry(UpdateCountryInput: UpdateCountryInput!): Country!
+  deleteCountry(id: String!): Country!
+}
+
+input CreateCountryInput {
+  name: String!
+  area: String!
+}
+
+input UpdateCountryInput {
+  id: String!
+  name: String!
+  area: String!
+}
