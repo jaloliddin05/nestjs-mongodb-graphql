@@ -27,7 +27,10 @@ export class CountryService {
   }
 
   async update(id: string, updateData: UpdateCountryInput) {
-    return await this.countryModel.updateOne({ _id: id }, updateData);
+    delete updateData.id;
+    await this.countryModel.updateOne({ _id: id }, updateData);
+    const country = await this.getOne(id);
+    return country;
   }
 
   async delete(id: string): Promise<Country> {

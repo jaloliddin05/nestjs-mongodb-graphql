@@ -6,7 +6,7 @@ class UpdateCountryInput {
   @IsNotEmpty()
   @IsString()
   @Field()
-  readonly id: string;
+  id: string;
 
   @IsOptional()
   @IsString()
