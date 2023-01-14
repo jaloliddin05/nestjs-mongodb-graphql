@@ -20,7 +20,7 @@ export class City extends Document {
     ref: Country.name,
     type: MongooseSchema.Types.ObjectId,
   })
-  country: string;
+  country: MongooseSchema.Types.ObjectId;
 }
 
 export const CitySchema = SchemaFactory.createForClass(City);
