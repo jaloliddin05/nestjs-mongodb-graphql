@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Document, Schema as MongooseSchema } from 'mongoose';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { IsString } from 'class-validator';
 
 @ObjectType()
 @Schema()
@@ -11,6 +12,18 @@ export class Country extends Document {
 
   @Field()
   @Prop({ required: true })
+  area: string;
+}
+
+@ObjectType()
+export class CountryR {
+  @Field(() => ID)
+  _id: MongooseSchema.Types.ObjectId;
+
+  @Field()
+  name: string;
+
+  @Field()
   area: string;
 }
 
