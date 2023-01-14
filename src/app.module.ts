@@ -6,6 +6,7 @@ import { ApolloDriver } from '@nestjs/apollo';
 import { join } from 'path';
 
 import { CountryModule } from './modules/country/country.module';
+import { CityModule } from './modules/city/city.module';
 
 import configuration from './config';
 
@@ -22,6 +23,7 @@ import configuration from './config';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
     CountryModule,
+    CityModule,
   ],
 })
 export class AppModule {}
