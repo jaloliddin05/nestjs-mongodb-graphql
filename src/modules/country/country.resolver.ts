@@ -1,31 +1,30 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { CountryService } from './country.service';
-import { Country } from './schema/country.schema';
+import { CountryR } from './schema/country.schema';
 import { CreateCountryInput, UpdateCountryInput } from './dto';
-import { Schema } from 'mongoose';
 
-@Resolver(() => Country)
+@Resolver(() => CountryR)
 export class CountryResolver {
   constructor(private readonly countryService: CountryService) {}
 
-  @Mutation(() => Country, { name: 'createCountry' })
+  @Mutation(() => CountryR, { name: 'createCountry' })
   createCountry(
     @Args('CreateCountryInput') createCountryInput: CreateCountryInput,
-  ): Promise<Country & { _id: Schema.Types.ObjectId }> {
+  ): Promise<CountryR> {
     return this.countryService.create(createCountryInput);
   }
 
-  @Query(() => [Country], { name: 'findAllCountry' })
+  @Query(() => [CountryR], { name: 'findAllCountry' })
   findAll() {
     return this.countryService.getAll();
   }
 
-  @Query(() => Country, { name: 'findOneCountry' })
+  @Query(() => CountryR, { name: 'findOneCountry' })
   findOne(@Args('id') id: string) {
     return this.countryService.getOne(id);
   }
 
-  @Mutation(() => Country, { name: 'updateCountry' })
+  @Mutation(() => CountryR, { name: 'updateCountry' })
   updateCountry(
     @Args('UpdateCountryInput') updateProjectInput: UpdateCountryInput,
   ) {
@@ -35,7 +34,7 @@ export class CountryResolver {
     );
   }
 
-  @Mutation(() => Country, { name: 'deleteCountry' })
+  @Mutation(() => CountryR, { name: 'deleteCountry' })
   removeCountry(@Args('id') id: string) {
     return this.countryService.delete(id);
   }
