@@ -1,7 +1,7 @@
-import { Document, Schema } from 'mongoose';
+import { Document, Types } from 'mongoose';
 
 export interface Country extends Document {
-  _id: Schema.Types.ObjectId;
+  _id: Types.ObjectId;
   name: string;
   area: string;
 }

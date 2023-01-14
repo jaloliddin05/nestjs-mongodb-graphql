@@ -2,21 +2,21 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type CountryR {
+type Country {
   _id: ID!
   name: String!
   area: String!
 }
 
 type Query {
-  findAllCountry: [CountryR!]!
-  findOneCountry(id: String!): CountryR!
+  findAllCountry: [Country!]!
+  findOneCountry(id: String!): Country!
 }
 
 type Mutation {
-  createCountry(CreateCountryInput: CreateCountryInput!): CountryR!
-  updateCountry(UpdateCountryInput: UpdateCountryInput!): CountryR!
-  deleteCountry(id: String!): CountryR!
+  createCountry(CreateCountryInput: CreateCountryInput!): Country!
+  updateCountry(UpdateCountryInput: UpdateCountryInput!): Country!
+  deleteCountry(id: String!): Country!
 }
 
 input CreateCountryInput {
